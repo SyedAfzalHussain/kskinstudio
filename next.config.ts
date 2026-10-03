@@ -1,7 +1,15 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    // Product and section imagery is served from the store's own Shopify CDN.
+    remotePatterns: [
+      { protocol: 'https', hostname: 'www.thekskinstudio.com', pathname: '/cdn/**' },
+      { protocol: 'https', hostname: 'thekskinstudio.com', pathname: '/cdn/**' },
+      { protocol: 'https', hostname: 'cdn.shopify.com', pathname: '/**' },
+    ],
+    formats: ['image/avif', 'image/webp'],
+  },
+}
 
-export default nextConfig;
+export default nextConfig

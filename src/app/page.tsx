@@ -1,69 +1,90 @@
-import Image from "next/image";
+import Slideshow from '@/components/home/Slideshow'
+import CategoryCards from '@/components/home/CategoryCards'
+import ProductTabs, { type TabPanel } from '@/components/home/ProductTabs'
+import HighlightText from '@/components/home/HighlightText'
+import CollectionList from '@/components/home/CollectionList'
+import Lookbook from '@/components/home/Lookbook'
+import Press from '@/components/home/Press'
+import CardImages from '@/components/home/CardImages'
+import BrandStrip from '@/components/home/BrandStrip'
+import Features from '@/components/home/Features'
+import RichText from '@/components/home/RichText'
+import SunscreenShowcase from '@/components/home/SunscreenShowcase'
+import ImageWithText from '@/components/home/ImageWithText'
+import PromoTiles from '@/components/home/PromoTiles'
+import Testimonials from '@/components/home/Testimonials'
+import FaqSection from '@/components/home/FaqSection'
+import { COLLECTION_LIST, LOOKBOOK, RICH_TEXT_1, RICH_TEXT_2, SUNSCREEN_SHOWCASE } from '@/data/homepage'
+import { toHotspotProduct, type HotspotProduct } from '@/lib/hotspot'
+import {
+  getCollection,
+  getCollectionProducts,
+  getNewArrivals,
+  getProduct,
+  getSaleProducts,
+} from '@/lib/catalog'
 
-export default function Home() {
+export default function HomePage() {
+  const newArrivals = getNewArrivals(12)
+  const newHandles = newArrivals.map((p) => p.handle)
+
+  const saleProducts = getSaleProducts(12)
+  const tabs: TabPanel[] = [
+    { id: 'new', label: 'NEW ARRIVALS', href: '/collections/new-arrivals', products: newArrivals },
+    {
+      id: 'best',
+      label: 'BEST SELLERS',
+      href: '/collections/serum-ampoule',
+      products: getCollectionProducts('serum-ampoule').slice(0, 12),
+    },
+    ...(saleProducts.length
+      ? [{ id: 'sale', label: 'SALE', href: '/collections/all', products: saleProducts }]
+      : []),
+  ]
+
+  const counts = Object.fromEntries(
+    COLLECTION_LIST.items.map((item) => [
+      item.handle,
+      getCollection(item.handle)?.productHandles.length ?? 0,
+    ]),
+  )
+
+  const hotspotProducts = Object.fromEntries(
+    LOOKBOOK.slides
+      .flatMap((slide) => slide.hotspots)
+      .map((spot) => {
+        const product = getProduct(spot.handle)
+        return product ? ([spot.handle, toHotspotProduct(product)] as const) : null
+      })
+      .filter((entry): entry is readonly [string, HotspotProduct] => Boolean(entry)),
+  )
+
+  const sunscreens = SUNSCREEN_SHOWCASE.handles
+    .map((handle) => getProduct(handle))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p))
+  const showcase = sunscreens.length
+    ? sunscreens
+    : getCollectionProducts('sunscreens').slice(0, 8)
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    <>
+      <Slideshow />
+      <CategoryCards />
+      <ProductTabs tabs={tabs} newHandles={newHandles} />
+      <HighlightText />
+      <CollectionList counts={counts} />
+      <Lookbook products={hotspotProducts} />
+      <Press />
+      <CardImages />
+      <BrandStrip />
+      <Features />
+      <RichText heading={RICH_TEXT_1.heading} cta={RICH_TEXT_1.cta} />
+      <SunscreenShowcase products={showcase} />
+      <ImageWithText />
+      <PromoTiles />
+      <Testimonials />
+      <FaqSection />
+      <RichText heading={RICH_TEXT_2.heading} cta={RICH_TEXT_2.cta} />
+    </>
+  )
 }
