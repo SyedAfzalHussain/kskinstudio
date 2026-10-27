@@ -13,11 +13,11 @@ export default function CollectionList({ counts }: { counts: Record<string, numb
         body={COLLECTION_LIST.body}
       />
 
-      <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+      <ul className="flex flex-wrap justify-center gap-4">
         {COLLECTION_LIST.items.map((item, i) => (
-          <Reveal as="li" key={item.handle} delay={(i % 6) * 60}>
+          <Reveal as="li" key={item.handle} delay={(i % 6) * 60} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.75rem)] lg:w-[calc(25%-0.75rem)] xl:w-[calc(16.666%-0.84rem)]">
             <Link href={`/collections/${item.handle}`} className="group block">
-              <div className="relative aspect-square overflow-hidden rounded-[--radius-block] bg-[--color-bg-secondary]">
+              <div className="relative aspect-square overflow-hidden rounded-(--radius-block) bg-(--color-bg-secondary)">
                 <Image
                   src={item.image}
                   alt=""
@@ -27,7 +27,7 @@ export default function CollectionList({ counts }: { counts: Record<string, numb
                 />
               </div>
               <p className="mt-3 text-center text-[1.05rem] font-medium">{item.title}</p>
-              <p className="text-center text-sm text-[--color-fg-muted]">
+              <p className="text-center text-sm text-(--color-fg-muted)">
                 {counts[item.handle] ?? 0} products
               </p>
             </Link>

@@ -71,7 +71,7 @@ export default function CollectionBrowser({
 
   return (
     <>
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-y border-[--color-border] py-4">
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-y border-(--color-border) py-4">
         <div className="flex flex-wrap items-center gap-2">
           <button
             type="button"
@@ -98,9 +98,9 @@ export default function CollectionBrowser({
         </div>
 
         <div className="flex items-center gap-4">
-          <p className="text-sm text-[--color-fg-muted]">{filtered.length} products</p>
+          <p className="text-sm text-(--color-fg-muted)">{filtered.length} products</p>
           <label className="flex items-center gap-2 text-sm">
-            <span className="text-[--color-fg-muted]">Sort by</span>
+            <span className="text-(--color-fg-muted)">Sort by</span>
             <span className="relative">
               <select
                 value={sort}
@@ -108,7 +108,7 @@ export default function CollectionBrowser({
                   setSort(e.target.value as SortId)
                   setVisible(PAGE_SIZE)
                 }}
-                className="appearance-none rounded-full border border-[--color-border] bg-transparent py-2 pl-4 pr-9 text-sm"
+                className="appearance-none rounded-full border border-(--color-border) bg-transparent py-2 pl-4 pr-9 text-sm"
               >
                 {SORTS.map((option) => (
                   <option key={option.id} value={option.id}>
@@ -123,7 +123,7 @@ export default function CollectionBrowser({
       </div>
 
       {shown.length === 0 ? (
-        <p className="py-16 text-center text-[--color-fg-muted]">
+        <p className="py-16 text-center text-(--color-fg-muted)">
           No products match these filters.
         </p>
       ) : (

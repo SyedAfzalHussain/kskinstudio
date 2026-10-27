@@ -21,7 +21,7 @@ export default function CollectionsIndexPage() {
         {collections.map((collection) => (
           <li key={collection.handle}>
             <Link href={`/collections/${collection.handle}`} className="group block">
-              <div className="relative aspect-square overflow-hidden rounded-[--radius-block] bg-[--color-bg-secondary]">
+              <div className="relative aspect-square overflow-hidden rounded-(--radius-block) bg-(--color-bg-secondary)">
                 {collection.image ? (
                   <Image
                     src={collection.image}
@@ -31,13 +31,13 @@ export default function CollectionsIndexPage() {
                     className="zoom-img object-cover"
                   />
                 ) : (
-                  <span className="grid h-full place-items-center px-3 text-center text-sm text-[--color-fg-muted]">
+                  <span className="grid h-full place-items-center px-3 text-center text-sm text-(--color-fg-muted)">
                     {collection.title}
                   </span>
                 )}
               </div>
               <p className="mt-2 text-sm font-medium">{collection.title}</p>
-              <p className="text-xs text-[--color-fg-muted]">
+              <p className="text-xs text-(--color-fg-muted)">
                 {collection.productHandles.length} products
               </p>
             </Link>

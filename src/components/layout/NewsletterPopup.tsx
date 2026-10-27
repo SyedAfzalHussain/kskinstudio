@@ -43,7 +43,7 @@ export default function NewsletterPopup() {
         role="dialog"
         aria-modal="true"
         aria-label={POPUP.heading}
-        className="relative w-full max-w-md overflow-hidden rounded-[--radius-block] bg-[--color-bg]"
+        className="relative w-full max-w-md overflow-hidden rounded-(--radius-block) bg-(--color-bg)"
       >
         <button
           type="button"
@@ -61,7 +61,7 @@ export default function NewsletterPopup() {
         <div className="px-6 py-6 text-center">
           <p className="t-display-3">{POPUP.heading}</p>
           <p className="t-display-3">{POPUP.subheading}</p>
-          <p className="mt-3 text-sm text-[--color-fg-muted]">{POPUP.body}</p>
+          <p className="mt-3 text-sm text-(--color-fg-muted)">{POPUP.body}</p>
 
           {done ? (
             <p className="mt-5 text-sm font-medium">Thanks — check your inbox for the code.</p>
@@ -96,7 +96,7 @@ export default function NewsletterPopup() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={social.title}
-                  className="text-[--color-fg-muted] transition-colors hover:text-[--color-fg]"
+                  className="text-(--color-fg-muted) transition-colors hover:text-(--color-fg)"
                 >
                   <Icon />
                 </a>

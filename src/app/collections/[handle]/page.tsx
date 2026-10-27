@@ -55,7 +55,7 @@ export default async function CollectionPage({ params }: { params: Promise<Param
 
       <header className="mb-8">
         {collection.image ? (
-          <div className="relative mb-8 aspect-[21/7] overflow-hidden rounded-[--radius-block] bg-[--color-bg-secondary]">
+          <div className="relative mb-8 aspect-[21/7] overflow-hidden rounded-(--radius-block) bg-(--color-bg-secondary)">
             <Image
               src={collection.image}
               alt=""
@@ -76,7 +76,7 @@ export default async function CollectionPage({ params }: { params: Promise<Param
       </header>
 
       {products.length === 0 ? (
-        <p className="py-20 text-center text-[--color-fg-muted]">
+        <p className="py-20 text-center text-(--color-fg-muted)">
           This collection is empty right now — check back soon.
         </p>
       ) : (

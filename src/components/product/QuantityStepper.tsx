@@ -14,7 +14,7 @@ export default function QuantityStepper({
   max?: number
 }) {
   return (
-    <div className="inline-flex h-12 items-center rounded-full border border-[--color-border]">
+    <div className="inline-flex h-12 items-center rounded-full border border-(--color-border)">
       <button
         type="button"
         onClick={() => onChange(Math.max(min, value - 1))}

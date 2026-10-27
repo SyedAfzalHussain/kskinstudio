@@ -48,30 +48,30 @@ export default function HeaderClient({
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[--color-bg] transition-shadow ${
+      className={`sticky top-0 z-50 bg-(--color-bg) transition-shadow ${
         stuck ? 'shadow-[0_1px_0_0_var(--color-border)]' : ''
       }`}
       onMouseLeave={scheduleClose}
     >
       <div className="page-width">
-        <div className="flex items-center gap-4 py-3 lg:grid lg:grid-cols-[165px_1fr_auto] lg:items-start lg:gap-8 lg:py-4">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 py-2 lg:grid-cols-[116px_1fr_auto] lg:gap-10 lg:py-0">
           <button
             type="button"
             onClick={openNav}
             aria-label="Open menu"
-            className="-ml-2 p-2 lg:hidden"
+            className="-ml-2 justify-self-start p-2 lg:hidden"
           >
             <MenuIcon className="h-6 w-6" />
           </button>
 
           <Logo
             size={165}
-            className="mx-auto w-[96px] lg:mx-0 lg:w-[165px]"
+            className="w-[88px] lg:w-[116px]"
           />
 
           <nav
             aria-label="Main"
-            className="hidden self-center lg:flex lg:flex-wrap lg:gap-x-6 lg:gap-y-1"
+            className="hidden lg:flex lg:flex-wrap lg:justify-center lg:gap-x-7 lg:gap-y-1"
             onMouseEnter={cancelClose}
           >
             {menu.map((item) => {
@@ -97,7 +97,7 @@ export default function HeaderClient({
             })}
           </nav>
 
-          <div className="ml-auto flex items-center gap-1 self-center lg:gap-2">
+          <div className="flex items-center justify-self-end gap-1 lg:gap-2">
             <button type="button" onClick={openSearch} aria-label="Search" className="p-2">
               <SearchIcon />
             </button>
@@ -112,7 +112,7 @@ export default function HeaderClient({
             >
               <BagIcon />
               {hydrated && count > 0 ? (
-                <span className="absolute right-0 top-0 grid h-4 min-w-4 place-items-center rounded-full bg-[--color-primary] px-1 text-[0.625rem] font-medium leading-none text-white">
+                <span className="absolute right-0 top-0 grid h-4 min-w-4 place-items-center rounded-full bg-(--color-primary) px-1 text-[0.625rem] font-medium leading-none text-white">
                   {count}
                 </span>
               ) : null}
@@ -125,7 +125,7 @@ export default function HeaderClient({
       <div
         onMouseEnter={cancelClose}
         onMouseLeave={scheduleClose}
-        className={`absolute inset-x-0 top-full hidden overflow-hidden border-t border-[--color-border] bg-[--color-bg] transition-[opacity,transform] lg:block ${
+        className={`absolute inset-x-0 top-full hidden overflow-hidden border-t border-(--color-border) bg-(--color-bg) transition-[opacity,transform] lg:block ${
           activeItem
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none -translate-y-2 opacity-0'

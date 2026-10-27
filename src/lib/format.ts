@@ -39,3 +39,19 @@ export function slugToTitle(slug: string): string {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ')
 }
+
+/**
+ * Store titles are SEO strings: "Brand Product SPF50 – Korean … for Glow & UV".
+ * Cards and headings read better with just the product name; the rest becomes
+ * a muted tagline. Short or unsplittable titles come back untouched.
+ */
+export function splitTitle(title: string): { name: string; tagline: string } {
+  const match = title.match(/\s[–—]\s/)
+  if (!match || match.index === undefined || match.index < 12) {
+    return { name: title, tagline: '' }
+  }
+  return {
+    name: title.slice(0, match.index).trim(),
+    tagline: title.slice(match.index + match[0].length).trim(),
+  }
+}

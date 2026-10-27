@@ -31,8 +31,8 @@ export default function Slideshow() {
       onMouseLeave={() => setPaused(false)}
       className="page-width pt-3"
     >
-      <div className="relative overflow-hidden rounded-[--radius-block]">
-        <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/7]">
+      <div className="relative overflow-hidden rounded-(--radius-block)">
+        <div className="relative aspect-[4/5] bg-(--color-bg-secondary) sm:aspect-[16/10] lg:aspect-[16/7]">
           {SLIDES.map((slide, i) => (
             <div
               key={slide.image}
@@ -49,12 +49,12 @@ export default function Slideshow() {
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent sm:via-black/15" />
 
               <div className="page-width absolute inset-0 flex items-center">
-                <div className="max-w-lg text-white">
-                  <p className="t-display-1">{slide.heading}</p>
-                  <p className="mt-3 text-lg text-white/90 sm:text-xl">{slide.subheading}</p>
+                <div className="max-w-2xl px-4 text-white sm:px-8 lg:px-12">
+                  <p className="t-display-1 [text-shadow:0_1px_24px_rgb(0_0_0/0.25)]">{slide.heading}</p>
+                  <p className="mt-3 text-lg text-white sm:text-xl">{slide.subheading}</p>
                   <Link href={slide.cta.href} className="btn btn--light btn--lg mt-6">
                     {slide.cta.label}
                   </Link>
@@ -64,24 +64,26 @@ export default function Slideshow() {
           ))}
         </div>
 
-        <button
-          type="button"
-          onClick={() => go(index - 1)}
-          aria-label="Previous slide"
-          className="absolute left-4 top-1/2 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/85 transition-colors hover:bg-white sm:grid"
-        >
-          <ChevronIcon className="h-5 w-5 rotate-180" />
-        </button>
-        <button
-          type="button"
-          onClick={() => go(index + 1)}
-          aria-label="Next slide"
-          className="absolute right-4 top-1/2 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/85 transition-colors hover:bg-white sm:grid"
-        >
-          <ChevronIcon className="h-5 w-5" />
-        </button>
+        <div className="absolute bottom-5 right-5 hidden gap-2 sm:flex lg:bottom-6 lg:right-8">
+          <button
+            type="button"
+            onClick={() => go(index - 1)}
+            aria-label="Previous slide"
+            className="grid h-11 w-11 place-items-center rounded-full bg-white/90 transition-colors hover:bg-white"
+          >
+            <ChevronIcon className="h-5 w-5 rotate-180" />
+          </button>
+          <button
+            type="button"
+            onClick={() => go(index + 1)}
+            aria-label="Next slide"
+            className="grid h-11 w-11 place-items-center rounded-full bg-white/90 transition-colors hover:bg-white"
+          >
+            <ChevronIcon className="h-5 w-5" />
+          </button>
+        </div>
 
-        <div className="absolute inset-x-0 bottom-5 flex justify-center gap-2">
+        <div className="absolute bottom-6 left-5 flex gap-2 sm:left-12 lg:left-[4.25rem]">
           {SLIDES.map((slide, i) => (
             <button
               key={slide.image}

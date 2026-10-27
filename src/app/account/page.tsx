@@ -13,7 +13,7 @@ export default function AccountPage() {
       <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Account' }]} />
       <div className="mx-auto max-w-sm py-10 text-center">
         <h1 className="t-display-3">Log in</h1>
-        <p className="mt-3 text-[--color-fg-muted]">
+        <p className="mt-3 text-(--color-fg-muted)">
           Customer accounts are handled by the store&apos;s commerce backend. Wire this page to
           Shopify customer accounts (or your own auth) when you connect checkout.
         </p>

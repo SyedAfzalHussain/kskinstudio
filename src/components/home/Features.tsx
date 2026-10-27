@@ -17,7 +17,7 @@ export default function Features() {
           const Icon = ICONS[i] ?? TruckIcon
           return (
             <li key={feature} className="flex items-center gap-3">
-              <Icon className="h-6 w-6 shrink-0 text-[--color-fg-muted]" />
+              <Icon className="h-6 w-6 shrink-0 text-(--color-fg-muted)" />
               <span className="text-sm font-medium">{feature}</span>
             </li>
           )

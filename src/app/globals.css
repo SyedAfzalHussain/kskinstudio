@@ -91,6 +91,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ── Type scale ──────────────────────────────────────────────────────────── */
+/* Display classes are used on <p> as well as headings, so carry the heading
+   rhythm with them instead of inheriting the body's 1.625 line-height. */
+.t-display-1, .t-display-2, .t-display-3,
+.t-h1, .t-h2, .t-h3, .t-h4, .t-h5 {
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
 .t-display-1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); }
 .t-display-2 { font-size: clamp(2rem, 4.4vw, 3rem); }
 .t-display-3 { font-size: clamp(1.625rem, 3.2vw, 2.25rem); }
@@ -231,6 +240,7 @@ textarea.field { border-radius: 1rem; padding-block: 0.875rem; min-height: 8rem;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--page-padding);
   scrollbar-width: none;
 }
 .rail::-webkit-scrollbar { display: none; }

@@ -33,7 +33,7 @@ export default function MegaMenu({ item, brands }: { item: NavItem; brands: Coll
     return (
       <div className="page-width py-10">
         <div className="mb-6 flex items-baseline justify-between gap-4">
-          <p className="t-eyebrow text-[--color-fg-muted]">Shop by brand</p>
+          <p className="t-eyebrow text-(--color-fg-muted)">Shop by brand</p>
           <Link href="/brands" className="link-underline text-sm font-medium">
             View all brands
           </Link>
@@ -41,7 +41,7 @@ export default function MegaMenu({ item, brands }: { item: NavItem; brands: Coll
         <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-x-6 gap-y-7">
           {groups.map(([letter, items]) => (
             <div key={letter}>
-              <p className="mb-2 text-xs font-medium tracking-[0.12em] text-[--color-fg-faint]">
+              <p className="mb-2 text-xs font-medium tracking-[0.12em] text-(--color-fg-faint)">
                 {letter}
               </p>
               <ul className="space-y-1.5">
@@ -49,7 +49,7 @@ export default function MegaMenu({ item, brands }: { item: NavItem; brands: Coll
                   <li key={brand.handle}>
                     <Link
                       href={`/collections/${brand.handle}`}
-                      className="link-underline text-sm text-[--color-fg-muted] hover:text-[--color-fg]"
+                      className="link-underline text-sm text-(--color-fg-muted) hover:text-(--color-fg)"
                     >
                       {brandLabel(brand)}
                     </Link>
@@ -74,7 +74,7 @@ export default function MegaMenu({ item, brands }: { item: NavItem; brands: Coll
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="link-underline text-sm text-[--color-fg-muted] hover:text-[--color-fg]"
+                    className="link-underline text-sm text-(--color-fg-muted) hover:text-(--color-fg)"
                   >
                     {link.title}
                   </Link>
@@ -88,7 +88,7 @@ export default function MegaMenu({ item, brands }: { item: NavItem; brands: Coll
       {item.feature ? (
         <Link
           href={item.feature.href}
-          className="group relative hidden w-[280px] overflow-hidden rounded-[--radius-block] lg:block"
+          className="group relative hidden w-[280px] overflow-hidden rounded-(--radius-block) lg:block"
         >
           <Image
             src={item.feature.image}

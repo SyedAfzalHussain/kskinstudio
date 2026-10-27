@@ -29,7 +29,7 @@ export default function NewsletterForm({ note }: { note: string }) {
           </button>
         </form>
       )}
-      <p className="mt-3 max-w-sm text-xs text-[--color-fg-muted]">{note}</p>
+      <p className="mt-3 max-w-sm text-xs text-(--color-fg-muted)">{note}</p>
     </div>
   )
 }

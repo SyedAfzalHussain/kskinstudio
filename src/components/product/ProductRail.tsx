@@ -25,7 +25,7 @@ export default function ProductRail({
 
   return (
     <div className="relative">
-      <ul ref={railRef} className="rail -mx-[--page-padding] gap-4 px-[--page-padding]">
+      <ul ref={railRef} className="rail -mx-(--page-padding) gap-4 px-(--page-padding)">
         {products.map((product) => (
           <li
             key={product.handle}
@@ -41,7 +41,7 @@ export default function ProductRail({
           type="button"
           onClick={() => scrollBy(-1)}
           aria-label="Previous products"
-          className="grid h-10 w-10 place-items-center rounded-full border border-[--color-border] transition-colors hover:bg-black hover:text-white"
+          className="grid h-10 w-10 place-items-center rounded-full border border-(--color-border) transition-colors hover:bg-black hover:text-white"
         >
           <ChevronIcon className="h-4 w-4 rotate-180" />
         </button>
@@ -49,7 +49,7 @@ export default function ProductRail({
           type="button"
           onClick={() => scrollBy(1)}
           aria-label="Next products"
-          className="grid h-10 w-10 place-items-center rounded-full border border-[--color-border] transition-colors hover:bg-black hover:text-white"
+          className="grid h-10 w-10 place-items-center rounded-full border border-(--color-border) transition-colors hover:bg-black hover:text-white"
         >
           <ChevronIcon className="h-4 w-4" />
         </button>

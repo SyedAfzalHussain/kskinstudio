@@ -12,7 +12,7 @@ export default function CardImages() {
           <Reveal as="li" key={card.href + card.heading} delay={i * 80}>
             <Link
               href={card.href}
-              className="group relative block overflow-hidden rounded-[--radius-block]"
+              className="group relative block overflow-hidden rounded-(--radius-block)"
             >
               <div className="relative aspect-[3/4]">
                 <Image

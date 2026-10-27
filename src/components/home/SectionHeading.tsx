@@ -19,9 +19,9 @@ export default function SectionHeading({
         align === 'center' ? 'items-center text-center' : 'items-start'
       }`}
     >
-      {eyebrow ? <p className="t-eyebrow text-[--color-fg-muted]">{eyebrow}</p> : null}
+      {eyebrow ? <p className="t-eyebrow text-(--color-fg-muted)">{eyebrow}</p> : null}
       <h2 className="t-display-3 max-w-2xl">{heading}</h2>
-      {body ? <p className="max-w-xl text-[--color-fg-muted]">{body}</p> : null}
+      {body ? <p className="max-w-xl text-(--color-fg-muted)">{body}</p> : null}
       {action}
     </div>
   )

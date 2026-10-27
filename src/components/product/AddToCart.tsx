@@ -29,10 +29,10 @@ export default function AddToCart({
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-3">
-        <span className={`t-h3 ${off ? 'text-[--color-primary]' : ''}`}>{formatMoney(price)}</span>
+        <span className={`t-h3 ${off ? 'text-(--color-primary)' : ''}`}>{formatMoney(price)}</span>
         {compareAt && compareAt > price ? (
           <>
-            <span className="text-lg text-[--color-fg-muted] line-through">
+            <span className="text-lg text-(--color-fg-muted) line-through">
               {formatMoney(compareAt)}
             </span>
             <span className="badge" style={{ background: 'var(--color-badge-sale)' }}>
@@ -65,7 +65,7 @@ export default function AddToCart({
         </button>
       </div>
 
-      <p className="text-sm text-[--color-fg-muted]">
+      <p className="text-sm text-(--color-fg-muted)">
         {variant?.available
           ? 'In stock — ships in 1–2 business days'
           : 'Currently unavailable in this option'}

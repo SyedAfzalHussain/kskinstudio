@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useUI } from '@/components/layout/UIProvider'
-import { cdnImage, stripHtml } from '@/lib/format'
+import { cdnImage, splitTitle, stripHtml } from '@/lib/format'
 import { CloseIcon } from '@/components/ui/icons'
 import AddToCart from './AddToCart'
 
@@ -22,7 +22,7 @@ export default function QuickView() {
         role="dialog"
         aria-modal="true"
         aria-label={product.title}
-        className="relative grid max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-[--radius-block] bg-[--color-bg] md:grid-cols-2"
+        className="relative grid max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-(--radius-block) bg-(--color-bg) md:grid-cols-2"
       >
         <button
           type="button"
@@ -33,7 +33,7 @@ export default function QuickView() {
           <CloseIcon className="h-4 w-4" />
         </button>
 
-        <div className="relative aspect-square bg-[--color-bg-secondary]">
+        <div className="relative aspect-square bg-(--color-bg-secondary)">
           {product.images[0] ? (
             <Image
               src={cdnImage(product.images[0].src, 800)}
@@ -46,9 +46,9 @@ export default function QuickView() {
         </div>
 
         <div className="p-6 lg:p-8">
-          <h2 className="t-h4">{product.title}</h2>
+          <h2 className="t-h4">{splitTitle(product.title).name}</h2>
           {product.descriptionHtml ? (
-            <p className="mt-2 line-clamp-3 text-sm text-[--color-fg-muted]">
+            <p className="mt-2 line-clamp-3 text-sm text-(--color-fg-muted)">
               {stripHtml(product.descriptionHtml, 180)}
             </p>
           ) : null}

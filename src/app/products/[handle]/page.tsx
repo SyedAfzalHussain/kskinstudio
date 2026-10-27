@@ -14,7 +14,7 @@ import {
   getRelatedProducts,
   minPrice,
 } from '@/lib/catalog'
-import { cdnImage, stripHtml } from '@/lib/format'
+import { cdnImage, splitTitle, stripHtml } from '@/lib/format'
 
 type Params = { handle: string }
 
@@ -66,6 +66,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   const product = getProduct(handle)
   if (!product) notFound()
 
+  const { name, tagline } = splitTitle(product.title)
   const collections = getProductCollections(handle)
   const related = getRelatedProducts(product, 10)
   const primaryCollection = collections[0]
@@ -101,7 +102,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           ...(primaryCollection
             ? [{ label: primaryCollection.title, href: `/collections/${primaryCollection.handle}` }]
             : [{ label: 'Collections', href: '/collections' }]),
-          { label: product.title },
+          { label: name },
         ]}
       />
 
@@ -110,9 +111,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
         <div className="lg:py-4">
           {product.type ? (
-            <p className="t-eyebrow text-[--color-fg-muted]">{product.type}</p>
+            <p className="t-eyebrow text-(--color-fg-muted)">{product.type}</p>
           ) : null}
-          <h1 className="t-h1 mt-2">{product.title}</h1>
+          <h1 className="t-h1 mt-2">{name}</h1>
+          {tagline ? <p className="mt-2 text-lg text-(--color-fg-muted)">{tagline}</p> : null}
 
           <div className="mt-3 flex items-center gap-2">
             <span className="flex gap-0.5">
@@ -120,7 +122,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
                 <StarIcon key={i} className="h-4 w-4" />
               ))}
             </span>
-            <span className="text-sm text-[--color-fg-muted]">Verified buyer reviews</span>
+            <span className="text-sm text-(--color-fg-muted)">Verified buyer reviews</span>
           </div>
 
           <div className="mt-6">
@@ -148,8 +150,8 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       </div>
 
       {product.descriptionHtml ? (
-        <section className="section-gap">
-          <h2 className="t-h2 mb-6">Description</h2>
+        <section className="section-gap grid gap-6 border-t border-(--color-border) lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+          <h2 className="t-h2">Description</h2>
           <div
             className="rte max-w-3xl"
             dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}

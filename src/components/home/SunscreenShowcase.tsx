@@ -6,10 +6,10 @@ import type { Product } from '@/lib/types'
 
 export default function SunscreenShowcase({ products }: { products: Product[] }) {
   return (
-    <section className="section-gap bg-[--color-bg-secondary]">
+    <section className="section-gap bg-(--color-bg-secondary)">
       <div className="page-width">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,420px)_1fr] lg:items-center lg:gap-14">
-          <div className="relative overflow-hidden rounded-[--radius-block]">
+          <div className="relative overflow-hidden rounded-(--radius-block)">
             <div className="relative aspect-[4/5]">
               <Image
                 src={SUNSCREEN_SHOWCASE.image}

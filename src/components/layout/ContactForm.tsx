@@ -7,9 +7,9 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-[--radius-block] bg-[--color-bg-secondary] p-8">
+      <div className="rounded-(--radius-block) bg-(--color-bg-secondary) p-8">
         <p className="t-h4">Thanks — message received.</p>
-        <p className="mt-2 text-[--color-fg-muted]">
+        <p className="mt-2 text-(--color-fg-muted)">
           We&apos;ll reply to your email within one business day.
         </p>
       </div>

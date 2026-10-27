@@ -33,11 +33,11 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
         role="dialog"
         aria-modal={open}
         aria-label="Menu"
-        className={`fixed inset-y-0 left-0 z-50 flex w-[88vw] max-w-sm flex-col bg-[--color-bg] transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[88vw] max-w-sm flex-col bg-(--color-bg) transition-transform duration-300 lg:hidden ${
           open ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between border-b border-[--color-border] px-5 py-3">
+        <div className="flex items-center justify-between border-b border-(--color-border) px-5 py-3">
           <Logo size={96} className="w-[84px]" />
           <button type="button" onClick={close} aria-label="Close menu" className="p-2">
             <CloseIcon />
@@ -51,7 +51,7 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
               active ? '-translate-x-full' : 'translate-x-0'
             }`}
           >
-            <ul className="divide-y divide-[--color-border]">
+            <ul className="divide-y divide-(--color-border)">
               {menu.map((item) => {
                 const hasPanel = Boolean(item.columns || item.brands)
                 return (
@@ -63,7 +63,7 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
                         className="flex w-full items-center justify-between py-3.5 text-left text-base font-medium"
                       >
                         {item.title}
-                        <ChevronIcon className="h-4 w-4 text-[--color-fg-muted]" />
+                        <ChevronIcon className="h-4 w-4 text-(--color-fg-muted)" />
                       </button>
                     ) : (
                       <Link
@@ -78,7 +78,7 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
                 )
               })}
             </ul>
-            <div className="mt-6 space-y-2 border-t border-[--color-border] pt-6 text-sm">
+            <div className="mt-6 space-y-2 border-t border-(--color-border) pt-6 text-sm">
               <Link href="/account" onClick={close} className="block py-1">
                 Log in
               </Link>
@@ -93,7 +93,7 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
 
           {/* Submenu level */}
           <nav
-            className={`absolute inset-0 overflow-y-auto bg-[--color-bg] px-5 py-4 transition-transform duration-300 ${
+            className={`absolute inset-0 overflow-y-auto bg-(--color-bg) px-5 py-4 transition-transform duration-300 ${
               active ? 'translate-x-0' : 'translate-x-full'
             }`}
           >
@@ -122,7 +122,7 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
                         <Link
                           href={`/collections/${brand.handle}`}
                           onClick={close}
-                          className="block py-2 text-sm text-[--color-fg-muted]"
+                          className="block py-2 text-sm text-(--color-fg-muted)"
                         >
                           {brandLabel(brand)}
                         </Link>
@@ -140,7 +140,7 @@ export default function MobileNav({ menu, brands }: { menu: NavItem[]; brands: C
                               <Link
                                 href={link.href}
                                 onClick={close}
-                                className="block py-2 text-sm text-[--color-fg-muted]"
+                                className="block py-2 text-sm text-(--color-fg-muted)"
                               >
                                 {link.title}
                               </Link>

@@ -13,7 +13,7 @@ export default function CheckoutPage() {
       <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Checkout' }]} />
       <div className="mx-auto max-w-lg py-10 text-center">
         <h1 className="t-display-3">Checkout</h1>
-        <p className="mt-3 text-[--color-fg-muted]">
+        <p className="mt-3 text-(--color-fg-muted)">
           This build ships with a local cart. To take real payments, point this route at Shopify
           checkout — create a cart with the Storefront API and redirect to its <code>checkoutUrl</code>.
         </p>

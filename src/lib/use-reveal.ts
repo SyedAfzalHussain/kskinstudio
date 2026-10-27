@@ -5,12 +5,18 @@ import { useEffect, useRef, useState } from 'react'
 /** Adds the theme's scroll-in reveal without pulling in an animation library. */
 export function useReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.12) {
   const ref = useRef<T>(null)
-  // Without IntersectionObserver there is nothing to observe, so start revealed.
-  const [visible, setVisible] = useState(() => typeof IntersectionObserver === 'undefined')
+  // Must start `false` on both server and client or hydration mismatches.
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const node = ref.current
-    if (!node || typeof IntersectionObserver === 'undefined') return
+    if (!node) return
+
+    // No IntersectionObserver: reveal on the next frame (async, so not a sync setState).
+    if (typeof IntersectionObserver === 'undefined') {
+      const frame = requestAnimationFrame(() => setVisible(true))
+      return () => cancelAnimationFrame(frame)
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {

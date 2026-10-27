@@ -32,7 +32,7 @@ export default function BrandsPage() {
     <div className="page-width pt-6">
       <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Brands' }]} />
       <h1 className="t-display-2">Brands</h1>
-      <p className="mt-3 max-w-xl text-[--color-fg-muted]">
+      <p className="mt-3 max-w-xl text-(--color-fg-muted)">
         {brands.length} Korean beauty brands, stocked and shipped from Pakistan.
       </p>
 
@@ -41,7 +41,7 @@ export default function BrandsPage() {
           <a
             key={letter}
             href={`#letter-${letter}`}
-            className="grid h-9 w-9 place-items-center rounded-full border border-[--color-border] text-sm transition-colors hover:bg-black hover:text-white"
+            className="grid h-9 w-9 place-items-center rounded-full border border-(--color-border) text-sm transition-colors hover:bg-black hover:text-white"
           >
             {letter}
           </a>
@@ -51,16 +51,16 @@ export default function BrandsPage() {
       <div className="mt-10 space-y-10">
         {sorted.map(([letter, items]) => (
           <section key={letter} id={`letter-${letter}`} className="scroll-mt-32">
-            <h2 className="t-h3 mb-4 border-b border-[--color-border] pb-2">{letter}</h2>
+            <h2 className="t-h3 mb-4 border-b border-(--color-border) pb-2">{letter}</h2>
             <ul className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
               {items.map((brand) => (
                 <li key={brand.handle}>
                   <Link
                     href={`/collections/${brand.handle}`}
-                    className="link-underline text-[--color-fg-muted] hover:text-[--color-fg]"
+                    className="link-underline text-(--color-fg-muted) hover:text-(--color-fg)"
                   >
                     {label(brand.title)}
-                    <span className="ml-1 text-xs text-[--color-fg-faint]">
+                    <span className="ml-1 text-xs text-(--color-fg-faint)">
                       ({brand.productHandles.length})
                     </span>
                   </Link>

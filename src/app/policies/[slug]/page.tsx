@@ -31,7 +31,7 @@ export default async function PolicyPage({ params }: { params: Promise<Params> }
       <div className="rte mt-8 space-y-6">
         {policy.sections.map((section) => (
           <section key={section.heading}>
-            <h2 className="t-h3 text-[--color-fg]">{section.heading}</h2>
+            <h2 className="t-h3 text-(--color-fg)">{section.heading}</h2>
             {section.paragraphs.map((paragraph) => (
               <p key={paragraph.slice(0, 24)}>{paragraph}</p>
             ))}

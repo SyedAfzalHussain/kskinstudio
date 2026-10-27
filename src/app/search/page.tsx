@@ -44,7 +44,7 @@ export default async function SearchPage({
 
       {query ? (
         <>
-          <p className="mt-6 text-sm text-[--color-fg-muted]">
+          <p className="mt-6 text-sm text-(--color-fg-muted)">
             {results.length} result{results.length === 1 ? '' : 's'} for “{query}”
           </p>
           {results.length ? (
@@ -52,14 +52,14 @@ export default async function SearchPage({
               <ProductGrid products={results} />
             </div>
           ) : (
-            <p className="py-16 text-[--color-fg-muted]">
+            <p className="py-16 text-(--color-fg-muted)">
               Nothing matched. Try a brand name or a product type like “sunscreen”.
             </p>
           )}
         </>
       ) : (
         <div className="mt-8">
-          <p className="t-eyebrow text-[--color-fg-muted]">Popular searches</p>
+          <p className="t-eyebrow text-(--color-fg-muted)">Popular searches</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {SUGGESTIONS.map((s) => (
               <Link key={s.href} href={s.href} className="btn btn--secondary btn--sm">

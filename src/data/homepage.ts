@@ -39,7 +39,7 @@ export const CATEGORY_CARDS = [
     image: cdn('Untitled_design_12.png?v=1759785179'),
   },
   {
-    title: 'Mostrurizers',
+    title: 'Moisturizers',
     href: '/collections/moisturizers',
     image: cdn('Untitled_design_10.png?v=1759783607'),
   },
@@ -90,15 +90,15 @@ export const LOOKBOOK = {
     {
       image: cdn('d37b9eb9-1882-465b-8dd4-57882b6f2b1b.jpg?v=1758987135'),
       hotspots: [
-        { x: 30, y: 38, handle: 'medicube-booster-pro-mini-pakistan' },
-        { x: 62, y: 66, handle: 'medicube-zero-pore-pad-70-pads-deep-pore-cleansing-skin-smoothing-toner-pads' },
+        { x: 21, y: 74, handle: 'unove-frizz-calming-sleek-leave-in-conditioner-150ml' },
+        { x: 47, y: 42, handle: 'dr-forhair-unove-deep-damage-treatment-320ml' },
+        { x: 76, y: 58, handle: 'unove-deep-damage-repair-shampoo-500g' },
       ],
     },
     {
       image: cdn('IMG_6556.webp?v=1758536417'),
       hotspots: [
-        { x: 44, y: 30, handle: 'tocobo-cotton-soft-sun-stick-spf50-pa' },
-        { x: 68, y: 72, handle: 'tocobo-bio-watery-sun-cream-spf50-pa' },
+        { x: 45, y: 55, handle: 'romand-glasting-gloss' },
       ],
     },
   ],
@@ -280,7 +280,7 @@ export const FAQ = {
 }
 
 export const RICH_TEXT_2 = {
-  heading: 'Spring styles to wear together or apart, whatever the weather.',
+  heading: 'Not sure what suits your skin? Ask us — we reply fast.',
   cta: { label: 'Contact Us', href: '/pages/contact' },
 }
 

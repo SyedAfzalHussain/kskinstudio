@@ -27,7 +27,7 @@ export default function SearchBox({ initialQuery }: { initialQuery: string }) {
       role="search"
       className="relative max-w-xl"
     >
-      <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[--color-fg-muted]" />
+      <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-(--color-fg-muted)" />
       <input
         type="search"
         value={query}

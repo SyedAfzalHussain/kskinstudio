@@ -25,7 +25,7 @@ export default function VariantPicker({
         return (
           <fieldset key={option.name}>
             <legend className="mb-2 text-sm">
-              <span className="text-[--color-fg-muted]">{option.name}:</span>{' '}
+              <span className="text-(--color-fg-muted)">{option.name}:</span>{' '}
               <span className="font-medium">{selected[index]}</span>
             </legend>
             <div className="flex flex-wrap gap-2">
@@ -41,7 +41,7 @@ export default function VariantPicker({
                     className={`rounded-full border px-4 py-2 text-sm transition-colors ${
                       active
                         ? 'border-black bg-black text-white'
-                        : 'border-[--color-border] hover:border-black'
+                        : 'border-(--color-border) hover:border-black'
                     } ${available ? '' : 'opacity-40'}`}
                   >
                     {value}

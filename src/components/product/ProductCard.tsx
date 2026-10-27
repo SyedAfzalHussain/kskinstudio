@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useUI } from '@/components/layout/UIProvider'
 import { useCart } from '@/lib/cart'
-import { cdnImage, discountPercent, formatMoney } from '@/lib/format'
+import { cdnImage, discountPercent, formatMoney, splitTitle } from '@/lib/format'
 import { EyeIcon } from '@/components/ui/icons'
 import type { Product } from '@/lib/types'
 
@@ -46,7 +46,7 @@ export default function ProductCard({
 
   return (
     <article className="group relative flex flex-col">
-      <div className="relative overflow-hidden rounded-[--radius-card] bg-[--color-bg-secondary]">
+      <div className="relative overflow-hidden rounded-(--radius-card) bg-(--color-bg-secondary)">
         <Link href={`/products/${product.handle}`} className="block" tabIndex={-1} aria-hidden="true">
           <div className="relative aspect-square">
             {primary ? (
@@ -56,7 +56,7 @@ export default function ProductCard({
                 fill
                 sizes={sizes}
                 priority={priority}
-                className={`zoom-img object-cover ${
+                className={`zoom-img object-cover mix-blend-multiply ${
                   secondary ? 'transition-opacity duration-500 group-hover:opacity-0' : ''
                 }`}
               />
@@ -67,7 +67,7 @@ export default function ProductCard({
                 alt=""
                 fill
                 sizes={sizes}
-                className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                className="object-cover mix-blend-multiply opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               />
             ) : null}
           </div>
@@ -134,13 +134,13 @@ export default function ProductCard({
       <div className="mt-3 flex flex-1 flex-col">
         <h3 className="text-[1.05rem] font-medium leading-snug">
           <Link href={`/products/${product.handle}`} className="line-clamp-2 after:absolute after:inset-0 after:content-['']">
-            {product.title}
+            {splitTitle(product.title).name}
           </Link>
         </h3>
-        <p className="mt-1 flex items-center gap-2 text-[0.95rem]">
-          <span className={sale ? 'text-[--color-primary]' : undefined}>{formatMoney(price)}</span>
+        <p className="mt-1 flex flex-wrap items-center gap-x-2 text-[0.95rem]">
+          <span className={sale ? 'text-(--color-primary)' : undefined}>{formatMoney(price)}</span>
           {compareAt && compareAt > price ? (
-            <span className="text-sm text-[--color-fg-muted] line-through">
+            <span className="text-sm text-(--color-fg-muted) line-through">
               {formatMoney(compareAt)}
             </span>
           ) : null}

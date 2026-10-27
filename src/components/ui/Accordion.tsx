@@ -16,7 +16,7 @@ export default function Accordion({
   const id = useId()
 
   return (
-    <div className="divide-y divide-[--color-border] border-y border-[--color-border]">
+    <div className="divide-y divide-(--color-border) border-y border-(--color-border)">
       {items.map((item, i) => {
         const expanded = open === i
         return (
@@ -30,7 +30,7 @@ export default function Accordion({
                 className="flex w-full items-center justify-between gap-6 py-5 text-left text-lg font-medium"
               >
                 <span>{item.q}</span>
-                <span className="shrink-0 text-[--color-fg-muted]">
+                <span className="shrink-0 text-(--color-fg-muted)">
                   {expanded ? <MinusIcon /> : <PlusIcon />}
                 </span>
               </button>
@@ -38,7 +38,7 @@ export default function Accordion({
             <div
               id={`${id}-panel-${i}`}
               hidden={!expanded}
-              className="pb-6 text-[--color-fg-muted]"
+              className="pb-6 text-(--color-fg-muted)"
             >
               {item.a}
             </div>

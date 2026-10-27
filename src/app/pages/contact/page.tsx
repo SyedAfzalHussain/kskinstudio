@@ -15,7 +15,7 @@ export default function ContactPage() {
     <div className="page-width pt-6">
       <Breadcrumbs trail={[{ label: 'Home', href: '/' }, { label: 'Contact Us' }]} />
       <h1 className="t-display-2">Contact Us</h1>
-      <p className="mt-3 max-w-xl text-[--color-fg-muted]">
+      <p className="mt-3 max-w-xl text-(--color-fg-muted)">
         Questions about an order, a product or your routine? Send us a message and we&apos;ll get
         back within one business day.
       </p>
@@ -26,7 +26,7 @@ export default function ContactPage() {
         <aside className="space-y-8">
           <div>
             <h2 className="t-subheading">Customer care</h2>
-            <p className="mt-2 text-sm text-[--color-fg-muted]">
+            <p className="mt-2 text-sm text-(--color-fg-muted)">
               Monday–Saturday, 10am–7pm PKT
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="link-underline text-sm text-[--color-fg-muted] hover:text-[--color-fg]"
+                    className="link-underline text-sm text-(--color-fg-muted) hover:text-(--color-fg)"
                   >
                     {social.title}
                   </a>

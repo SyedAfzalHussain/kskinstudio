@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'thekskinstudio.com', pathname: '/cdn/**' },
       { protocol: 'https', hostname: 'cdn.shopify.com', pathname: '/**' },
     ],
-    formats: ['image/avif', 'image/webp'],
+    loader: 'custom',
+    loaderFile: './src/lib/image-loader.ts',
   },
 }
 

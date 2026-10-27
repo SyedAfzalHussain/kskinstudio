@@ -14,13 +14,13 @@ export default function ProductGallery({
 }) {
   const [active, setActive] = useState(0)
   if (!images.length) {
-    return <div className="aspect-square rounded-[--radius-block] bg-[--color-bg-secondary]" />
+    return <div className="aspect-square rounded-(--radius-block) bg-(--color-bg-secondary)" />
   }
 
   const current = images[Math.min(active, images.length - 1)]
 
   return (
-    <div className="flex flex-col-reverse gap-4 lg:flex-row">
+    <div className="flex flex-col-reverse gap-4 self-start lg:sticky lg:top-28 lg:flex-row">
       {images.length > 1 ? (
         <ul className="rail gap-3 lg:w-20 lg:flex-col lg:overflow-visible">
           {images.map((image, i) => (
@@ -30,7 +30,7 @@ export default function ProductGallery({
                 onClick={() => setActive(i)}
                 aria-label={`View image ${i + 1}`}
                 aria-current={i === active}
-                className={`relative block aspect-square w-full overflow-hidden rounded-[--radius-card-inner] border transition-colors ${
+                className={`relative block aspect-square w-full overflow-hidden rounded-(--radius-card-inner) border transition-colors ${
                   i === active ? 'border-black' : 'border-transparent'
                 }`}
               >
@@ -47,7 +47,7 @@ export default function ProductGallery({
         </ul>
       ) : null}
 
-      <div className="relative flex-1 overflow-hidden rounded-[--radius-block] bg-[--color-bg-secondary]">
+      <div className="relative flex-1 overflow-hidden rounded-(--radius-block) bg-(--color-bg-secondary)">
         <div className="relative aspect-square">
           <Image
             src={cdnImage(current.src, 1200)}
@@ -55,7 +55,7 @@ export default function ProductGallery({
             fill
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
+            className="object-cover mix-blend-multiply"
           />
         </div>
       </div>

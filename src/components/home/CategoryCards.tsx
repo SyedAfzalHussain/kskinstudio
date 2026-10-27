@@ -11,7 +11,7 @@ export default function CategoryCards() {
           <Reveal as="li" key={card.href} delay={i * 80}>
             <Link
               href={card.href}
-              className="group relative block overflow-hidden rounded-[--radius-block]"
+              className="group relative block overflow-hidden rounded-(--radius-block)"
             >
               <div className="relative aspect-[4/3]">
                 <Image

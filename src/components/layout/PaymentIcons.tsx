@@ -7,7 +7,7 @@ export default function PaymentIcons() {
       {METHODS.map((method) => (
         <li
           key={method}
-          className="rounded border border-[--color-border] bg-white px-2 py-1 text-[0.625rem] font-medium uppercase tracking-wide text-[--color-fg-muted]"
+          className="rounded border border-(--color-border) bg-white px-2 py-1 text-[0.625rem] font-medium uppercase tracking-wide text-(--color-fg-muted)"
         >
           {method}
         </li>
